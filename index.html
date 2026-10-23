@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>မေးခွန်းလေး 💌</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ff9a9e, #fecfef);
+    font-family: 'Pyidaungsu', 'Myanmar Text', sans-serif;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .card {
+    background: rgba(255,255,255,0.95);
+    padding: 45px 40px 70px;
+    border-radius: 25px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    text-align: center;
+    max-width: 92%;
+    animation: floatIn 1s ease-out;
+    position: relative;
+  }
+
+  h1 {
+    color: #e63976;
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+  }
+
+  .sub {
+    color: #777;
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+
+  .baby {
+    color: #e63976;
+    font-weight: bold;
+  }
+
+  .buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  button {
+    font-family: inherit;
+    font-size: 1.1rem;
+    padding: 14px 38px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s;
+  }
+
+  #yesBtn {
+    background: #ff4d88;
+    color: white;
+    box-shadow: 0 6px 18px rgba(255,77,136,0.4);
+  }
+
+  #yesBtn:hover { background: #e63976; transform: scale(1.08); }
+
+  #noBtn {
+    background: #ddd;
+    color: #555;
+    position: relative;
+    transition: left 0.2s, top 0.2s;
+  }
+
+  .heart {
+    font-size: 2.8rem;
+    margin-top: 25px;
+    animation: beat 1s infinite;
+  }
+
+  .result {
+    display: none;
+    animation: floatIn 0.8s ease-out;
+  }
+
+  .result h1 { font-size: 1.8rem; }
+  .result p { color: #555; margin-top: 12px; line-height: 1.8; }
+
+  /* Credit footer */
+  .credit {
+    position: absolute;
+    bottom: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.85rem;
+    color: #b0507a;
+    text-align: center;
+    width: 100%;
+    white-space: nowrap;
+  }
+
+  .credit a {
+    color: #e63976;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .credit a:hover { text-decoration: underline; }
+
+  @keyframes floatIn {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes beat {
+    0%,100% { transform: scale(1); }
+    50%     { transform: scale(1.2); }
+  }
+</style>
+</head>
+<body>
+
+  <div class="card" id="question">
+    <h1>Baby‌ေလးရေ… 💕</h1>
+    <p class="sub">Baby ရေ… ကိုကို့ကို ချစ်လား မချစ်ဘူးလား?</p>
+    <div class="buttons">
+      <button id="yesBtn">ချစ်တယ် ❤️</button>
+      <button id="noBtn">မချစ်ဘူး 💔</button>
+    </div>
+    <div class="credit">Make By <a href="https://t.me/Novel220" target="_blank">Novel</a></div>
+  </div>
+
+  <div class="card result" id="result">
+    <h1>ဟုတ်တယ်! ကိုကိုလည်း Babyကို ချစ်တယ်ဗျ 💖</h1>
+    <p><span class="baby">Baby</span> ရဲ့ အဖြေလေးအတွက် ကျေးဇူးတင်ပါတယ်နော် အာဘွား Baby 🫶🏻<br>ဒီနေ့လည်း ပျော်ရွှင်ပါစေ 🌸</p>
+    <div class="heart">❤️</div>
+    <div class="credit">Make By <a href="https://t.me/Novel220" target="_blank">Novel</a></div>
+  </div>
+
+<script>
+  const noBtn = document.getElementById('noBtn');
+  const yesBtn = document.getElementById('yesBtn');
+  const question = document.getElementById('question');
+  const result = document.getElementById('result');
+
+  // "မချစ်ဘူး" နှိပ်ရင် ခလုတ် ထွက်ပြေး
+  noBtn.addEventListener('mouseover', () => {
+    const x = Math.random() * (window.innerWidth  - noBtn.offsetWidth  - 40);
+    const y = Math.random() * (window.innerHeight - noBtn.offsetHeight - 40);
+    noBtn.style.position = 'fixed';
+    noBtn.style.left = x + 'px';
+    noBtn.style.top  = y + 'px';
+  });
+
+  noBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const x = Math.random() * (window.innerWidth  - noBtn.offsetWidth  - 40);
+    const y = Math.random() * (window.innerHeight - noBtn.offsetHeight - 40);
+    noBtn.style.position = 'fixed';
+    noBtn.style.left = x + 'px';
+    noBtn.style.top  = y + 'px';
+  });
+
+  // "ချစ်တယ်" နှိပ်ရင် အဖြေ ပြ
+  yesBtn.addEventListener('click', () => {
+    question.style.display = 'none';
+    result.style.display = 'block';
+  });
+</script>
+
+</body>
+</html>
